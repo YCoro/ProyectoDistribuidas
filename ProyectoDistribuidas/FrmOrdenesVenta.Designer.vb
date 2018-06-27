@@ -26,16 +26,16 @@ Partial Class FrmOrdenesVenta
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.BtnRegistrarVenta = New System.Windows.Forms.Button()
-        Me.TxtBoxTotal = New System.Windows.Forms.TextBox()
+        Me.TxtTotal = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.TxtBoxCliente = New System.Windows.Forms.TextBox()
-        Me.TxtBoxNit = New System.Windows.Forms.TextBox()
+        Me.TxtCliente = New System.Windows.Forms.TextBox()
+        Me.TxtNit = New System.Windows.Forms.TextBox()
         Me.Productos = New System.Windows.Forms.GroupBox()
         Me.BtnEliminarProducto = New System.Windows.Forms.Button()
         Me.BtnAgregarProducto = New System.Windows.Forms.Button()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.DtGvProductos = New System.Windows.Forms.DataGridView()
         Me.CodigoProducto = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.NombreProducto = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.CantidadProducto = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -63,7 +63,7 @@ Partial Class FrmOrdenesVenta
         Me.TabPage1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.Productos.SuspendLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DtGvProductos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage2.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.DtGvConfiguraciones, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -94,12 +94,12 @@ Partial Class FrmOrdenesVenta
         'GroupBox1
         '
         Me.GroupBox1.Controls.Add(Me.BtnRegistrarVenta)
-        Me.GroupBox1.Controls.Add(Me.TxtBoxTotal)
+        Me.GroupBox1.Controls.Add(Me.TxtTotal)
         Me.GroupBox1.Controls.Add(Me.Label3)
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Controls.Add(Me.Label1)
-        Me.GroupBox1.Controls.Add(Me.TxtBoxCliente)
-        Me.GroupBox1.Controls.Add(Me.TxtBoxNit)
+        Me.GroupBox1.Controls.Add(Me.TxtCliente)
+        Me.GroupBox1.Controls.Add(Me.TxtNit)
         Me.GroupBox1.Location = New System.Drawing.Point(4, 6)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(614, 123)
@@ -116,13 +116,14 @@ Partial Class FrmOrdenesVenta
         Me.BtnRegistrarVenta.Text = "Registrar Venta"
         Me.BtnRegistrarVenta.UseVisualStyleBackColor = True
         '
-        'TxtBoxTotal
+        'TxtTotal
         '
-        Me.TxtBoxTotal.Enabled = False
-        Me.TxtBoxTotal.Location = New System.Drawing.Point(10, 97)
-        Me.TxtBoxTotal.Name = "TxtBoxTotal"
-        Me.TxtBoxTotal.Size = New System.Drawing.Size(209, 20)
-        Me.TxtBoxTotal.TabIndex = 5
+        Me.TxtTotal.Enabled = False
+        Me.TxtTotal.Location = New System.Drawing.Point(10, 97)
+        Me.TxtTotal.Name = "TxtTotal"
+        Me.TxtTotal.Size = New System.Drawing.Size(209, 20)
+        Me.TxtTotal.TabIndex = 5
+        Me.TxtTotal.Text = "0"
         '
         'Label3
         '
@@ -154,25 +155,25 @@ Partial Class FrmOrdenesVenta
         Me.Label1.TabIndex = 2
         Me.Label1.Text = "Nombre Cliente"
         '
-        'TxtBoxCliente
+        'TxtCliente
         '
-        Me.TxtBoxCliente.Location = New System.Drawing.Point(10, 42)
-        Me.TxtBoxCliente.Name = "TxtBoxCliente"
-        Me.TxtBoxCliente.Size = New System.Drawing.Size(305, 20)
-        Me.TxtBoxCliente.TabIndex = 0
+        Me.TxtCliente.Location = New System.Drawing.Point(10, 42)
+        Me.TxtCliente.Name = "TxtCliente"
+        Me.TxtCliente.Size = New System.Drawing.Size(305, 20)
+        Me.TxtCliente.TabIndex = 0
         '
-        'TxtBoxNit
+        'TxtNit
         '
-        Me.TxtBoxNit.Location = New System.Drawing.Point(321, 42)
-        Me.TxtBoxNit.Name = "TxtBoxNit"
-        Me.TxtBoxNit.Size = New System.Drawing.Size(209, 20)
-        Me.TxtBoxNit.TabIndex = 1
+        Me.TxtNit.Location = New System.Drawing.Point(321, 42)
+        Me.TxtNit.Name = "TxtNit"
+        Me.TxtNit.Size = New System.Drawing.Size(209, 20)
+        Me.TxtNit.TabIndex = 1
         '
         'Productos
         '
         Me.Productos.Controls.Add(Me.BtnEliminarProducto)
         Me.Productos.Controls.Add(Me.BtnAgregarProducto)
-        Me.Productos.Controls.Add(Me.DataGridView1)
+        Me.Productos.Controls.Add(Me.DtGvProductos)
         Me.Productos.Location = New System.Drawing.Point(4, 129)
         Me.Productos.Name = "Productos"
         Me.Productos.Size = New System.Drawing.Size(614, 301)
@@ -198,17 +199,18 @@ Partial Class FrmOrdenesVenta
         Me.BtnAgregarProducto.Text = "Agregar"
         Me.BtnAgregarProducto.UseVisualStyleBackColor = True
         '
-        'DataGridView1
+        'DtGvProductos
         '
-        Me.DataGridView1.AllowUserToAddRows = False
-        Me.DataGridView1.AllowUserToDeleteRows = False
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.CodigoProducto, Me.NombreProducto, Me.CantidadProducto, Me.PrecioProducto, Me.Subtotal})
-        Me.DataGridView1.Location = New System.Drawing.Point(0, 19)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.ReadOnly = True
-        Me.DataGridView1.Size = New System.Drawing.Size(489, 275)
-        Me.DataGridView1.TabIndex = 0
+        Me.DtGvProductos.AllowUserToAddRows = False
+        Me.DtGvProductos.AllowUserToDeleteRows = False
+        Me.DtGvProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DtGvProductos.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.CodigoProducto, Me.NombreProducto, Me.CantidadProducto, Me.PrecioProducto, Me.Subtotal})
+        Me.DtGvProductos.Location = New System.Drawing.Point(0, 19)
+        Me.DtGvProductos.Name = "DtGvProductos"
+        Me.DtGvProductos.ReadOnly = True
+        Me.DtGvProductos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.DtGvProductos.Size = New System.Drawing.Size(489, 275)
+        Me.DtGvProductos.TabIndex = 0
         '
         'CodigoProducto
         '
@@ -425,7 +427,7 @@ Partial Class FrmOrdenesVenta
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.Productos.ResumeLayout(False)
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DtGvProductos, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage2.ResumeLayout(False)
         Me.TabPage2.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
@@ -438,16 +440,16 @@ Partial Class FrmOrdenesVenta
     Friend WithEvents TabPage1 As TabPage
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents BtnRegistrarVenta As Button
-    Friend WithEvents TxtBoxTotal As TextBox
+    Friend WithEvents TxtTotal As TextBox
     Friend WithEvents Label3 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents Label1 As Label
-    Friend WithEvents TxtBoxCliente As TextBox
-    Friend WithEvents TxtBoxNit As TextBox
+    Friend WithEvents TxtCliente As TextBox
+    Friend WithEvents TxtNit As TextBox
     Friend WithEvents Productos As GroupBox
     Friend WithEvents BtnEliminarProducto As Button
     Friend WithEvents BtnAgregarProducto As Button
-    Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents DtGvProductos As DataGridView
     Friend WithEvents CodigoProducto As DataGridViewTextBoxColumn
     Friend WithEvents NombreProducto As DataGridViewTextBoxColumn
     Friend WithEvents CantidadProducto As DataGridViewTextBoxColumn

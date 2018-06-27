@@ -106,6 +106,33 @@ ProyectoDistribuidas
  Limpia los controles donde se ingresan los datos de la configuración
  </summary>
 </member>
+<member name="M:ProyectoDistribuidas.FrmOrdenesVenta.SubAgregarProducto(ProyectoDistribuidas.Producto)">
+ <summary>
+ Agrega un nuevo producto al control grid de productos para la orden de venta. Primero verifica si ya existe
+ un producto con el mismo código, de ser asi, solo suma la cantidad.
+ </summary>
+ <param name="cNuevoProducto"></param>
+</member>
+<member name="M:ProyectoDistribuidas.FrmOrdenesVenta.SubEliminarProductoSeleccionado">
+ <summary>
+ Se encarga de eliminar el registro seleccionado en el data grid de productos.
+ </summary>
+</member>
+<member name="M:ProyectoDistribuidas.FrmOrdenesVenta.SubMostrarTotal">
+ <summary>
+ Suma los subtotales del grid de productos y los muestra en el textbox correspondiente.
+ </summary>
+</member>
+<member name="M:ProyectoDistribuidas.FrmOrdenesVenta.SubRegistrarVenta">
+ <summary>
+ Obtiene los datos de formulario y realiza el intento de registro en las bases de datos configuradas
+ </summary>
+</member>
+<member name="M:ProyectoDistribuidas.FrmOrdenesVenta.SubLimpiarFormulario">
+ <summary>
+ Limpia los controles de formulario asociados a la venta
+ </summary>
+</member>
 <member name="M:ProyectoDistribuidas.FrmSeleccionarProducto.SubCargarProductos">
  <summary>
  Se encarga de consultar los registros hacia las bases de datos distribuidas, luego despliega los datos en el gridview.

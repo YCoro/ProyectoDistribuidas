@@ -54,6 +54,37 @@
     Private Sub FrmSeleccionarProducto_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         SubCargarProductos()
     End Sub
+
+
+    Private Sub BtnAgregarProducto_Click(sender As Object, e As EventArgs) Handles BtnAgregarProducto.Click
+        If (DtGvProductos.CurrentRow IsNot Nothing) Then
+
+            If (Not IsNumeric(TxtCantidad.Text)) Then
+                MessageBox.Show("No se ha ingresado un valor válido en el campo cantidad", Me.Text, MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                Return
+            End If
+
+            Dim intCantidad As Integer = Convert.ToInt32(TxtCantidad.Text)
+
+            If (intCantidad <= 0) Then
+                MessageBox.Show("Se debe ingresar un valor positivo en la cantidad", Me.Text, MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                Return
+            End If
+
+            cProductoSeleccionado = New Producto()
+            cProductoSeleccionado.Cantidad = intCantidad
+            cProductoSeleccionado.CodigoProducto = DtGvProductos.CurrentRow.Cells("CodigoProducto").Value
+            cProductoSeleccionado.Nombre = DtGvProductos.CurrentRow.Cells("Nombre").Value
+            cProductoSeleccionado.Descripcion = DtGvProductos.CurrentRow.Cells("Descripcion").Value
+            cProductoSeleccionado.Precio = DtGvProductos.CurrentRow.Cells("Precio").Value
+
+            Me.Close()
+
+        Else
+            MessageBox.Show("Debe seleccionar un producto", Me.Text, MessageBoxButtons.OK, MessageBoxIcon.Warning)
+        End If
+    End Sub
+
 #End Region
 
 

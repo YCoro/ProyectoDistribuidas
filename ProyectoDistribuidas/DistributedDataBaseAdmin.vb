@@ -114,6 +114,7 @@ EjecucionQuery:
         Dim transaccionDistribuida(listaBaseDatos.Count - 1) As Task(Of pgConexion)
         Dim indice As Integer = 0
 
+        Sistema.SubRegistrarOperacion("-", "-", "Se inicia proceso para registrar venta en " + listaBaseDatos.Count.ToString + " bases de datos")
         '' Ejecuta hilos para operar las transacciones en cada base de datos
         For Each cBaseDatos As DataBaseConection In listaBaseDatos
             transaccionDistribuida(indice) = Task(Of pgConexion).Factory.StartNew(Function() FncRegistrarFacturaTask(cFactura, cBaseDatos))
@@ -122,6 +123,7 @@ EjecucionQuery:
 
         '' Espera el resultado de todas las transacciones
         Task.WaitAll(transaccionDistribuida)
+        Sistema.SubRegistrarOperacion("-", "-", "Tareas han terminado su proceso")
 
         Dim blnTransaccionesExitosas As Boolean = True
 
@@ -129,8 +131,9 @@ EjecucionQuery:
         For indice = 0 To transaccionDistribuida.Count - 1
             Dim structConexion As pgConexion = transaccionDistribuida(indice).Result
 
-            If (structConexion.pgConnection Is Nothing Or structConexion.pgTransaction Is Nothing) Then
+            If (structConexion.pgConnection Is Nothing Or structConexion.pgTransaction Is Nothing Or structConexion.blnExitoso = False) Then
                 blnTransaccionesExitosas = False
+                Sistema.SubRegistrarOperacion("-", "-", "Al menos una operación fue incorrecta")
                 Exit For
             End If
         Next
@@ -141,12 +144,14 @@ EjecucionQuery:
             Dim structConexion As pgConexion = transaccionDistribuida(indice).Result
 
             If (blnTransaccionesExitosas And structConexion.pgTransaction IsNot Nothing) Then
+                Sistema.SubRegistrarOperacion(structConexion.pgConnection.Host, structConexion.pgConnection.Database, "Se confirma la transacción")
                 structConexion.pgTransaction.Commit()
             ElseIf structConexion.pgTransaction IsNot Nothing Then
                 structConexion.pgTransaction.Rollback()
             End If
 
             If (structConexion.pgConnection IsNot Nothing) Then
+                Sistema.SubRegistrarOperacion(structConexion.pgConnection.Host, structConexion.pgConnection.Database, "Se cierra la conexión")
                 structConexion.pgConnection.Close()
             End If
 

@@ -23,14 +23,14 @@ Partial Class FrmSeleccionarProducto
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.DtGvProductos = New System.Windows.Forms.DataGridView()
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.CodigoProducto = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Nombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Descripcion = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Precio = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.TxtBoxCodigoProducto = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.TxtCantidad = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.BtnAgregarProducto = New System.Windows.Forms.Button()
         CType(Me.DtGvProductos, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -47,18 +47,9 @@ Partial Class FrmSeleccionarProducto
         Me.DtGvProductos.Location = New System.Drawing.Point(3, 16)
         Me.DtGvProductos.Name = "DtGvProductos"
         Me.DtGvProductos.ReadOnly = True
+        Me.DtGvProductos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DtGvProductos.Size = New System.Drawing.Size(518, 340)
         Me.DtGvProductos.TabIndex = 0
-        '
-        'GroupBox1
-        '
-        Me.GroupBox1.Controls.Add(Me.DtGvProductos)
-        Me.GroupBox1.Location = New System.Drawing.Point(1, 51)
-        Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(524, 359)
-        Me.GroupBox1.TabIndex = 1
-        Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "Productos"
         '
         'CodigoProducto
         '
@@ -87,6 +78,16 @@ Partial Class FrmSeleccionarProducto
         Me.Precio.Name = "Precio"
         Me.Precio.ReadOnly = True
         '
+        'GroupBox1
+        '
+        Me.GroupBox1.Controls.Add(Me.DtGvProductos)
+        Me.GroupBox1.Location = New System.Drawing.Point(1, 51)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(524, 359)
+        Me.GroupBox1.TabIndex = 1
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "Productos"
+        '
         'TxtBoxCodigoProducto
         '
         Me.TxtBoxCodigoProducto.Location = New System.Drawing.Point(12, 25)
@@ -103,12 +104,12 @@ Partial Class FrmSeleccionarProducto
         Me.Label1.TabIndex = 3
         Me.Label1.Text = "Còdigo Producto"
         '
-        'TextBox1
+        'TxtCantidad
         '
-        Me.TextBox1.Location = New System.Drawing.Point(168, 25)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(172, 20)
-        Me.TextBox1.TabIndex = 4
+        Me.TxtCantidad.Location = New System.Drawing.Point(168, 25)
+        Me.TxtCantidad.Name = "TxtCantidad"
+        Me.TxtCantidad.Size = New System.Drawing.Size(172, 20)
+        Me.TxtCantidad.TabIndex = 4
         '
         'Label2
         '
@@ -135,7 +136,7 @@ Partial Class FrmSeleccionarProducto
         Me.ClientSize = New System.Drawing.Size(525, 408)
         Me.Controls.Add(Me.BtnAgregarProducto)
         Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.TextBox1)
+        Me.Controls.Add(Me.TxtCantidad)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.TxtBoxCodigoProducto)
         Me.Controls.Add(Me.GroupBox1)
@@ -156,7 +157,7 @@ Partial Class FrmSeleccionarProducto
     Friend WithEvents Precio As DataGridViewTextBoxColumn
     Friend WithEvents TxtBoxCodigoProducto As TextBox
     Friend WithEvents Label1 As Label
-    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents TxtCantidad As TextBox
     Friend WithEvents Label2 As Label
     Friend WithEvents BtnAgregarProducto As Button
 End Class

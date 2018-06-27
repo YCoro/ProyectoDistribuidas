@@ -155,26 +155,31 @@ Public Class DataBaseConection
     End Function
 
     Public Function FncAbrirConexion(ByRef connection As NpgsqlConnection) As Boolean
+        Sistema.SubRegistrarOperacion(Host, Database, "Se intenta abrir conexión")
         Try
             connection.Open()
             Return True
         Catch ex As Exception
+            Sistema.SubRegistrarOperacion(Host, Database, "No se pudo abrir conexión")
             Return False
         End Try
     End Function
 
 
     Public Function FncCerrarConexion(ByRef connection As NpgsqlConnection) As Boolean
+        Sistema.SubRegistrarOperacion(Host, Database, "Se cierra conexión")
         connection.Close()
         Return True
     End Function
 
     Public Function FncIniciarTransaccion(ByRef connection As NpgsqlConnection) As NpgsqlTransaction
+        Sistema.SubRegistrarOperacion(Host, Database, "Se inicia transacción")
         Return connection.BeginTransaction()
     End Function
 
 
     Public Function FncRevertirTransaccion(ByRef transaccion As NpgsqlTransaction) As Boolean
+        Sistema.SubRegistrarOperacion(Host, Database, "Se revierte transacción")
         transaccion.Rollback()
         Return True
     End Function
@@ -213,11 +218,11 @@ Public Class DataBaseConection
             Next
 
         Catch ex As Exception
-
+            Sistema.SubRegistrarOperacion(Host, Database, "Error en la consulta: " + ex.Message.ToString)
             Return False
 
         End Try
-
+        Sistema.SubRegistrarOperacion(Host, Database, "Consulta ejecutada con exito")
         Return True
 
     End Function

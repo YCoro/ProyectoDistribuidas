@@ -1,0 +1,12 @@
+27/06/2018 10:46:57, -, -, Se inicia proceso para registrar venta en 2 bases de datos
+27/06/2018 10:46:57, 192.168.0.15, DISTRIBUTED, Se intenta abrir conexión
+27/06/2018 10:46:57, 192.168.0.16, DISTRIBUTED, Se intenta abrir conexión
+27/06/2018 10:46:57, 192.168.0.15, DISTRIBUTED, Se inicia transacción
+27/06/2018 10:46:57, 192.168.0.16, DISTRIBUTED, Se inicia transacción
+27/06/2018 10:46:57, 192.168.0.16, DISTRIBUTED, Consulta ejecutada con exito
+27/06/2018 10:46:57, 192.168.0.15, DISTRIBUTED, Error en la consulta: 23505: duplicate key value violates unique constraint "PK_DetalleFactura"
+27/06/2018 10:46:57, -, -, Tareas han terminado su proceso
+27/06/2018 10:46:57, 192.168.0.15, DISTRIBUTED, Se confirma la transacción
+27/06/2018 10:46:57, 192.168.0.15, DISTRIBUTED, Se cierra la conexión
+27/06/2018 10:46:57, 192.168.0.16, DISTRIBUTED, Se confirma la transacción
+27/06/2018 10:46:57, 192.168.0.16, DISTRIBUTED, Se cierra la conexión
